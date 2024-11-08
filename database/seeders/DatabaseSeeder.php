@@ -12,6 +12,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call(EconomicGroupSeeder::class);
+        $this->call(BrandSeeder::class);
+        $this->call(UnitSeeder::class);
+        $this->call(EmployeeSeeder::class);
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
