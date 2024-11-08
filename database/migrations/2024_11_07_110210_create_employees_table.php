@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('cpf', length: 100)->unique();
+            $table->string('cpf', 11)->unique();
             $table->unsignedBigInteger('unit_id')->nullable();
 
             $table->foreign('unit_id')
