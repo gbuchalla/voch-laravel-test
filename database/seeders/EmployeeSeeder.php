@@ -20,7 +20,7 @@ class EmployeeSeeder extends Seeder
         $faker = Faker::create(locale:'pt_BR');
 
         // Define o número de colaboradores a criar
-        $numberOfEmployees = 100;
+        $numberOfEmployees = 150;
 
         for ($i = 0; $i < $numberOfEmployees; $i++) {
             DB::table('employees')->insert($this->generateEmployeesData($faker));
@@ -36,16 +36,18 @@ class EmployeeSeeder extends Seeder
     private function generateEmployeesData($faker)
     {
         $unit = DB::table('units')->inRandomOrder()->first();
-        $firstName = $faker->firstName;
-        $lastName = $faker->lastName;
+        $firstName = $faker->unique()->firstName();
+        $lastName = $faker->lastName();
 
         $createdAt = Carbon::now()->subDays(rand(0, 3 * 365));
         $updatedAt = $createdAt->copy()->addDays(rand(0, 365));
 
         return [
             'name' => "{$firstName} {$lastName}",
-            'email' => strtolower($firstName) . "." . strtolower($lastName) . "@gmail.com",
-            'cpf' => $faker->cpf(false),
+            'email' => iconv('UTF-8', 
+                'ASCII//TRANSLIT', 
+                strtolower($firstName) . "." . strtolower($lastName) . "@gmail.com"),
+            'cpf' => $faker->unique()->cpf(false),
             'unit_id' => $unit->id,
             'created_at' => $createdAt,
             'updated_at' => $updatedAt,

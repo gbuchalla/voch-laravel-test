@@ -20,7 +20,7 @@ class UnitSeeder extends Seeder
         $faker = Faker::create(locale: 'pt_BR');
 
         // Define o número de unidades a criar
-        $numberOfUnits = 10;
+        $numberOfUnits = 30;
 
         for ($i = 0; $i < $numberOfUnits; $i++) {
             DB::table('units')->insert($this->generateUnitsData($faker));
@@ -37,7 +37,7 @@ class UnitSeeder extends Seeder
     {
         $brand = DB::table('brands')->inRandomOrder()->first();
 
-        $company = $faker->company;
+        $company = $faker->unique()->company();
         // Verificar se o Faker já gerou um sufixo para nome da empresa.
         $companyHasSuffix = !strrpos($company, 'S.A.') && !strpos($company, 'Ltda.'); 
         // Escolhe um sufixo caso não tenha sido gerado pelo Faker
@@ -49,7 +49,7 @@ class UnitSeeder extends Seeder
         return [
             'fantasy_name' => $company,
             'corporate_name' => $companyHasSuffix ? "{$company} {$CompanySuffix}" : $company,
-            'cnpj' => $faker->cnpj(false),
+            'cnpj' => $faker->unique()->cnpj(false),
             'brand_id' => $brand->id,
             'created_at' => $createdAt,
             'updated_at' => $updatedAt,

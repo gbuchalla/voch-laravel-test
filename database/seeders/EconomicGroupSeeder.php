@@ -20,7 +20,7 @@ class EconomicGroupSeeder extends Seeder
         $faker = Faker::create(locale:'pt_BR');
         
         // Define o número de grupos econômicos a criar
-        $numberOfGroups = 2;
+        $numberOfGroups = 12;
 
         for ($i = 0; $i < $numberOfGroups; $i++) {
             DB::table('economic_groups')->insert($this->generateEconomicGroupData($faker));
@@ -39,7 +39,7 @@ class EconomicGroupSeeder extends Seeder
         $updatedAt = $createdAt->copy()->addDays(rand(0, 365));
 
         return [
-            'name' => $faker->company,
+            'name' => $faker->unique()->company(),
             'created_at' => $createdAt,
             'updated_at' => $updatedAt,
         ];

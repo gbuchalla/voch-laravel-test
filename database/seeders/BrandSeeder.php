@@ -20,7 +20,7 @@ class BrandSeeder extends Seeder
         $faker = Faker::create(locale:'pt_BR');
 
         // Define o número de bandeiras a criar
-        $numberOfBrands = 5;
+        $numberOfBrands = 20;
 
         for ($i = 0; $i < $numberOfBrands; $i++) {
             DB::table('brands')->insert($this->generateBrandsData($faker));
@@ -41,7 +41,7 @@ class BrandSeeder extends Seeder
         $updatedAt = $createdAt->copy()->addDays(rand(0, 365));
 
         return [
-            'name' => $faker->company(),
+            'name' => $faker->unique()->company(),
             'economic_group_id' => $economic_group->id,
             'created_at' => $createdAt,
             'updated_at' => $updatedAt,
