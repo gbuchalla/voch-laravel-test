@@ -33,10 +33,10 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 // Route::get('/login', Login::class)->name('login');
 // Route::get('/register', Register::class)->name('register');  
 
-Route::post('/logout', function () {
-    Auth::logout(); 
-    return Redirect::route('login');  
-})->name('logout');
+// Route::post('/logout', function () {
+//     Auth::logout(); 
+//     return Redirect::route('login');  
+// })->name('logout');
 
 Route::resources([
     'economic-groups' => EconomicGroupController::class,

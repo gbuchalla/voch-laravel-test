@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('name', 48);
+            $table->string('email', 48)->unique();
             $table->string('cpf', 11)->unique();
             $table->unsignedBigInteger('unit_id')->nullable();
 

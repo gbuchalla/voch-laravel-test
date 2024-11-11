@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('units', function (Blueprint $table) {
             $table->id();
-            $table->string('fantasy_name');
-            $table->string('corporate_name')->unique();
+            $table->string('fantasy_name', 48);
+            $table->string('corporate_name', 48)->unique();
             $table->string('cnpj', 14)->unique(); // CNPJ com 14 dígitos considerando símbolos (. e -)
             $table->unsignedBigInteger('brand_id')->nullable();
 

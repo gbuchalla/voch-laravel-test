@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('brands', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('name', 48)->unique();
             $table->unsignedBigInteger('economic_group_id')->nullable();
 
             $table->foreign('economic_group_id')

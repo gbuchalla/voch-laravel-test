@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('economic_groups', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('name', 48)->unique();
             $table->timestamps();
         });
     }
