@@ -139,4 +139,4 @@ php artisan serve
 
  
 ### ✉️ Contato:
-Em caso de dúvida, você pode me contatar por [e-mail](guibuchalla@gmail.com).
+Em caso de dúvida, você pode me contatar por [e-mail](mailto:guibuchalla@gmail.com).
