@@ -65,14 +65,14 @@
         <table class="table table-striped table-bordered table-hover">
             <thead>
                 <tr class="bg-dark text-light">
-                    <th>#</th>
-                    <th>Nome</th>
-                    <th>Email</th>
-                    <th>CPF</th>
-                    <th>Unidade</th>
-                    <th>Marca</th>
-                    <th>Grupo Econômico</th>
-                    <th>Ações</th>
+                    <th class="align-middle">#</th>
+                    <th class="align-middle">Nome</th>
+                    <th class="align-middle">Email</th>
+                    <th class="align-middle">CPF</th>
+                    <th class="align-middle">Unidade</th>
+                    <th class="align-middle">Marca</th>
+                    <th class="align-middle">Grupo Econômico</th>
+                    <th class="align-middle">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -81,7 +81,7 @@
                     <td>{{ $employee->id }}</td>
                     <td>{{ $employee->name }}</td>
                     <td>{{ $employee->email }}</td>
-                    <td>{{ $employee->cpf }}</td>
+                    <td>{{ substr($employee->cpf, 0, 3) . '.' . substr($employee->cpf, 3, 3) . '.' . substr($employee->cpf, 6, 3) . '-' . substr($employee->cpf, 9, 2) }}</td>
                     <td>{{ optional($employee->unit)->fantasy_name ?? 'N/A' }}</td>
                     <td>{{ optional($employee->unit?->brand)->name ?? 'N/A' }}</td>
                     <td>{{ optional($employee->unit?->brand?->economicGroup)->name ?? 'N/A' }}</td>
@@ -133,7 +133,7 @@
                             <input type="email" class="form-control custom-input" id="email" value="{{ old('email') }}" name="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="cpf">CPF</label>
+                            <label for="cpf">CPF (somente números)</label>
                             <input type="text" class="form-control custom-input" id="cpf" value="{{ old('cpf') }}" name="cpf" required>
                         </div>
                         <div class="form-group">
@@ -174,7 +174,7 @@
                         <input type="email" class="form-control" id="email{{ $employee->id }}" name="email" value="{{ old('email', $employee->email) }}" required>
                     </div>
                     <div class="form-group">
-                        <label for="cpf{{ $employee->id }}">CPF</label>
+                        <label for="cpf{{ $employee->id }}">CPF (somente números)</label>
                         <input type="text" class="form-control" id="cpf{{ $employee->id }}" name="cpf" value="{{ old('cpf', $employee->cpf) }}" required>
                     </div>
                     <div class="form-group">
@@ -260,7 +260,7 @@
     }
 
     /* Estilo da tabela (facilita a leitura) */
-    .table th, .table td {
+    .table thead th, .table td {
         text-align: center;
         vertical-align: middle;
     }
