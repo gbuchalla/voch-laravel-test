@@ -34,11 +34,11 @@
     <table class="table">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Data de Criação</th>
-                <th>Última Atualização</th>
-                <th>Ações</th>
+                <th class="align-middle">ID</th>
+                <th class="align-middle">Nome</th>
+                <th class="align-middle">Data de Criação</th>
+                <th class="align-middle">Última Atualização</th>
+                <th class="align-middle">Ações</th>
             </tr>
         </thead>
         <tbody>
