@@ -10,7 +10,7 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0 d-flex align-items-center">  <!-- d-flex e align-items-center para centralizar verticalmente -->
-            <form action="{{ route('home') }}" method="POST" class="d-inline m-1">
+            <form action="{{ Route::has('logout') ? route('logout') : '#' }}" method="POST" class="d-inline m-1">
                 @csrf
                 <!-- Alterando o estilo do botão de logout -->
                 <button type="submit" class="btn btn-link nav-link text-white logout-btn">

@@ -9,7 +9,7 @@
         <hr class="sidebar-divider">
 
         <!-- Grupos Econômicos -->
-        <a href="{{ Route::has('economic-groups.index') ? route('economic-groups.index') : '#' }}" class="list-group-item list-group-item-action text-white">
+        <a href="{{ Route::has('economic-groups.index') ? route('economic-groups.index') : '#' }}" style="width:max-content;" class="list-group-item list-group-item-action text-white">
             <i class="fas fa-sitemap mr-2"></i> Grupos Econômicos
         </a>
 
