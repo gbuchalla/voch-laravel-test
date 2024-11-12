@@ -3,29 +3,29 @@
 @section('content')
 <div class="container custom-container">
 
-     <!-- Exibindo mensagens de sucesso e erro -->
-     @if(session('success'))
-     <div class="alert alert-success">
-         {{ session('success') }}
-     </div>
- @endif
+    <!-- Exibindo mensagens de sucesso e erro -->
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
 
- @if(session('error'))
-     <div class="alert alert-danger">
-         {{ session('error') }}
-     </div>
- @endif
+    @if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+    @endif
 
- <!-- Exibindo erros de validação -->
- @if($errors->any())
-     <div class="alert alert-danger">
-         <ul class="m-0">
-             @foreach($errors->all() as $error)
-                 <li>{{ $error }}</li>
-             @endforeach
-         </ul>
-     </div>
- @endif
+    <!-- Exibindo erros de validação -->
+    @if($errors->any())
+    <div class="alert alert-danger">
+        <ul class="m-0">
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
 
     <h1 class="page-title mb-4">Lista de Colaboradores</h1>
 
@@ -60,6 +60,13 @@
         </div>
     </form>
 
+    <!-- Botão Gerar Relatório -->
+    <div class="mb-4">
+        <a href="{{ route('employees.export') }}" class="btn btn-warning">
+            <i class="fas fa-download"></i> Gerar Relatório
+        </a>
+    </div>
+
     <!-- Tabela de colaboradores -->
     <div class="table-responsive custom-table">
         <table class="table table-striped table-bordered table-hover">
@@ -70,7 +77,7 @@
                     <th class="align-middle">Email</th>
                     <th class="align-middle">CPF</th>
                     <th class="align-middle">Unidade</th>
-                    <th class="align-middle">Marca</th>
+                    <th class="align-middle">Bandeira</th>
                     <th class="align-middle">Grupo Econômico</th>
                     <th class="align-middle">Ações</th>
                 </tr>

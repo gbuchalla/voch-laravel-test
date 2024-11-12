@@ -8,33 +8,34 @@
         <!-- Separador entre Início e os outros itens -->
         <hr class="sidebar-divider">
 
-        <!-- Grupos Econômicos -->
-        <a href="{{ Route::has('economic-groups.index') ? route('economic-groups.index') : '#' }}" style="width:max-content;" class="list-group-item list-group-item-action text-white">
-            <i class="fas fa-sitemap mr-2"></i> Grupos Econômicos
+        <!-- Colaboradores -->
+        <a href="{{ Route::has('employees.index') ? route('employees.index') : '#' }}" class="list-group-item list-group-item-action text-white">
+            <i class="fas fa-users mr-2"></i> Colaboradores
+        </a>
+        
+        <!-- Unidades -->
+        <a href="{{ Route::has('units.index') ? route('units.index') : '#' }}" class="list-group-item list-group-item-action text-white">
+            <i class="fas fa-building mr-2"></i> Unidades
         </a>
 
         <!-- Bandeiras -->
         <a href="{{ Route::has('brands.index') ? route('brands.index') : '#' }}" class="list-group-item list-group-item-action text-white">
             <i class="fas fa-tag mr-2"></i> Bandeiras
         </a>
-
-        <!-- Unidades -->
-        <a href="{{ Route::has('units.index') ? route('units.index') : '#' }}" class="list-group-item list-group-item-action text-white">
-            <i class="fas fa-building mr-2"></i> Unidades
+        
+        <!-- Grupos Econômicos -->
+        <a href="{{ Route::has('economic-groups.index') ? route('economic-groups.index') : '#' }}" style="width:max-content;" class="list-group-item list-group-item-action text-white">
+            <i class="fas fa-sitemap mr-2"></i> Grupos Econômicos
         </a>
+        
 
-        <!-- Colaboradores -->
-        <a href="{{ Route::has('employees.index') ? route('employees.index') : '#' }}" class="list-group-item list-group-item-action text-white">
-            <i class="fas fa-users mr-2"></i> Colaboradores
-        </a>
-
-        <!-- Separador entre os itens principais e o Relatório -->
+        {{-- <!-- Separador entre os itens principais e o Relatório -->
         <hr class="sidebar-divider">
 
         <!-- Relatórios (sem submenu) -->
         <a href="{{ Route::has('reports.index') ? route('reports.index') : '#' }}" class="list-group-item list-group-item-action text-white">
             <i class="fas fa-chart-line mr-2"></i> Relatórios
-        </a>
+        </a> --}}
 
         <!-- Separador entre os itens principais e o Logout -->
         <hr class="sidebar-divider">

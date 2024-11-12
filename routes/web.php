@@ -14,7 +14,9 @@ use App\Http\Controllers\UnitController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomeController;
 
-
+use App\Exports\EmployeeExport;
+use Maatwebsite\Excel\Facades\Excel;
+use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +46,13 @@ Route::middleware(['auth'])->group(function () {
    // Homepage 
     Route::get('/', [HomeController::class, 'index'])->name('home');
 
+    
+    // Download reports routes
+    Route::get('/employees/export', function (Request $request) {
+        return Excel::download(new EmployeeExport, 'colaboradores'.Carbon::now('America/Sao_Paulo')->format('d-m-Y_H-i-s').'.xlsx');
+    })->name('employees.export');
+    
+
     // rotas CRUD para as principais resources
     Route::resources([
         'economic-groups' => EconomicGroupController::class,
@@ -51,4 +60,8 @@ Route::middleware(['auth'])->group(function () {
         'units' => UnitController::class,
         'employees' => EmployeeController::class,
     ]);
+
+    
 });
+
+

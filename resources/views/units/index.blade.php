@@ -36,7 +36,7 @@
             <tr>
                 <th class="align-middle">ID</th>
                 <th class="align-middle">Nome Fantasia</th>
-                <th class="align-middle">Nome Corporativo</th>
+                <th class="align-middle">Razão Social</th>
                 <th class="align-middle">CNPJ</th>
                 <th class="align-middle">Bandeira</th> <!-- Coluna de Bandeira -->
                 <th class="align-middle">Grupo Econômico</th> <!-- Coluna de Grupo Econômico -->
