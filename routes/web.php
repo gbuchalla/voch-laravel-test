@@ -13,10 +13,12 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AuditController;
 
 use App\Exports\EmployeeExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +41,7 @@ Route::post('register', [RegisterController::class, 'register']);
 
 
 
-
+Route::get('/audits', [AuditController::class, 'index'])->name('audits');
 
 Route::middleware(['auth'])->group(function () {
 
@@ -62,6 +64,7 @@ Route::middleware(['auth'])->group(function () {
     ]);
 
     
+
 });
 
 
