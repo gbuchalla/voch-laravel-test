@@ -27,15 +27,11 @@
         <a href="{{ Route::has('economic-groups.index') ? route('economic-groups.index') : '#' }}" style="width:max-content;" class="list-group-item list-group-item-action text-white">
             <i class="fas fa-sitemap mr-2"></i> Grupos Econômicos
         </a>
-        
 
-        {{-- <!-- Separador entre os itens principais e o Relatório -->
-        <hr class="sidebar-divider">
-
-        <!-- Relatórios (sem submenu) -->
-        <a href="{{ Route::has('reports.index') ? route('reports.index') : '#' }}" class="list-group-item list-group-item-action text-white">
-            <i class="fas fa-chart-line mr-2"></i> Relatórios
-        </a> --}}
+        <!-- Novo item de Auditoria -->
+        <a href="{{ Route::has('audits.index') ? route('audits.index') : '#' }}" class="list-group-item list-group-item-action text-white">
+            <i class="fas fa-search mr-2"></i> Auditoria
+        </a>
 
         <!-- Separador entre os itens principais e o Logout -->
         <hr class="sidebar-divider">
@@ -59,14 +55,10 @@
     </div>
 </div>
 
-
-
-
-
 <!-- Estilos customizados -->
 <style>
     #sidebar-wrapper {
-    padding-top: 20px; /* Ajuste conforme necessário */
+        padding-top: 20px; /* Ajuste conforme necessário */
     }
 
     /* Separadores customizados */
@@ -116,23 +108,4 @@
         background-color: #343a40;
         text-align: center;
     }
-
-    /* Submenu de Relatório */
-    #sidebar-wrapper .list-group-item {
-        background-color: #343a40;
-        border-radius: 5px;
-        padding-left: 30px; /* Deixa o submenu mais destacado */
-    }
-
-    #sidebar-wrapper .ml-3 {
-        margin-left: 20px; /* Indenta o submenu */
-    }
-
-    /* Estilo de hover para o submenu */
-    #sidebar-wrapper .ml-3 .list-group-item:hover {
-        background-color: #495057;
-    }
-
-
-
 </style>

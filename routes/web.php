@@ -41,7 +41,7 @@ Route::post('register', [RegisterController::class, 'register']);
 
 
 
-Route::get('/audits', [AuditController::class, 'index'])->name('audits');
+
 
 Route::middleware(['auth'])->group(function () {
 
@@ -55,7 +55,7 @@ Route::middleware(['auth'])->group(function () {
     })->name('employees.export');
     
 
-    // rotas CRUD para as principais resources
+    // Rotas CRUD para as principais resources
     Route::resources([
         'economic-groups' => EconomicGroupController::class,
         'brands' => BrandController::class,
@@ -63,8 +63,8 @@ Route::middleware(['auth'])->group(function () {
         'employees' => EmployeeController::class,
     ]);
 
-    
-
+        // Rota para lista de auditoria.
+        Route::get('/audits', [AuditController::class, 'index'])->name('audits.index');
 });
 
 

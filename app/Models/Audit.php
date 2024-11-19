@@ -43,17 +43,26 @@ class Audit extends Model
         $user = Auth::user(); // Pega o usuário autenticado
 
         $changes = null;
-        if ($action == 'updated') {
-            // Caso seja uma atualização, pega os valores alterados
-            $changes = [
-                'old' => $auditable->getChanges(),
-                'new' => $auditable->getOriginal()
-            ];
-            // dd($changes);
-        }
-        if ($action == 'created' || 'deleted') {
-            $changes = $auditable->getAttributes();
-            // dd($changes);
+
+        switch ($action) {
+            case 'created':
+                $changes = [
+                    'old' => null,
+                    'new' => $auditable->getAttributes()
+                ];
+                break;
+            case 'updated':
+                $changes = [
+                    'old' => $auditable->getOriginal(),
+                    'new' => $auditable->getAttributes()
+                ];
+                break;
+            case 'deleted':
+                $changes = [
+                    'old' => $auditable->getOriginal(),
+                    'new' => null
+                ];
+                break;
         }
 
         self::create([

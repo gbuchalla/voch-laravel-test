@@ -27,9 +27,9 @@
     @endif
 
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1>Auditorias</h1>
+        <h1>Auditoria</h1>
         <!-- Placeholder para o botão de download do relatório -->
-        <button class="btn btn-info" disabled>Baixar Relatório de Auditoria</button>
+        {{-- <button class="btn btn-info" disabled>Baixar Relatório de Auditoria</button> --}}
     </div>
 
     <table class="table">
